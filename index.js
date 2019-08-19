@@ -13,7 +13,7 @@
 
 var through2 = require('through2');
 var PluginError = require('plugin-error');
-var Applause = require('applause');
+var Applause = require('next-applause');
 
 // constants
 
@@ -40,8 +40,8 @@ module.exports = function (opts) {
     var contents = file.contents.toString();
     var applause = Applause.create(options);
     var result = applause.replace(contents);
-    if (result !== false) {
-      file.contents = new Buffer(result);
+    if (result && result.count > 0) {
+      file.contents = Buffer.from(result.content);
     } else {
       // preserve original file
     }

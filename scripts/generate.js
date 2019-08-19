@@ -27,7 +27,7 @@ while ((match = pattern.exec(readme)) !== null) {
 
 // write readme
 
-var Applause = require('applause');
+var Applause = require('next-applause');
 var options = {
   patterns: [{
     match: 'options',

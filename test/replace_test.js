@@ -12,8 +12,8 @@
 // dependencies
 
 var assert = require('assert');
-var gutil = require('gulp-util');
 var replace = require('../index');
+var Vinyl = require('vinyl');
 
 // test
 
@@ -33,8 +33,8 @@ describe('gulp-replace-task', function () {
       done();
     });
 
-    stream.write(new gutil.File({
-      contents: new Buffer('@@key')
+    stream.write(new Vinyl({
+      contents: Buffer.from('@@key')
     }));
 
     stream.end();
